@@ -1,0 +1,81 @@
+multistep-progress-bar {
+    *,
+    *:after,
+    *:before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .progress {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .progress .circle,
+    .progress .bar {
+      display: inline-block;
+      background: #e2e2e2;
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      border: 1px solid #d5d5da;
+      vertical-align: top;
+    }
+
+    .progress .bar {
+      position: relative;
+      width: 40px;
+      height: 5px;
+      margin: 0 -5px 17px -5px;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      top: 12px;
+      vertical-align: top
+    }
+    
+    .progress .circle .label {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 24px;
+      margin-top: 3px;
+      color: #b5b5ba;
+      font-size: 15px;
+    }
+
+    /* Done  */
+    
+    .progress .bar.done,
+    .progress .circle.done {
+      background: #283E4A;
+      border-color: transparent;
+    }
+    .progress .bar.active {
+      background: linear-gradient(to right, #283E4A 50%, #e2e2e2 50%);
+    }
+    
+    .progress .circle.done .label {
+      color: #e2e2e2;
+      background: #283E4A;
+    }
+
+    .center_text, .center_content{
+      padding-top: 1em;
+    }
+
+    /*Todo terminado*/
+    .progress .bar.done.finished,
+    .progress .circle.done.finished,
+    .progress .circle.done .label.finished
+    {
+      background: rgb(0, 134, 211);
+    }
+
+    .color_button_secondary {
+      background-color: #283E4A;
+      color: white;
+    }
+}

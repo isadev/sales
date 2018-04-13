@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title> {{ "view_customer_detail_title" |translate }} </ion-title>
+    <!-- <ion-buttons end (click)="showMenu($event)">
+      <button ion-button icon-only (click)="editCustomer()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<!-- Para el oscurecimiento del fondo cuando clicken en el ion-fab -->
+<div [class.darker]="show_ion_fab">
+  </div>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header text-wrap>
+      <!-- <ion-avatar item-start>
+        <ion-icon class="increase-font-size" name="contact"></ion-icon>
+      </ion-avatar> -->
+      <h1>{{customer.name}}</h1>
+    </ion-list-header>
+    <ion-item text-wrap>
+      <label>{{"address"|translate}}: </label>
+      <p>{{customer.address}}</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <label>{{"phone"|translate}}: </label>
+      <p>{{customer.phone}}</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <label>{{"postal_code"|translate}}: </label>
+      <p>{{customer.postal_code}}</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <label>{{"city"|translate}}: </label>
+      <p>{{customer.city.name}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header text-wrap>
+      <h1>{{ "contacts_subtitle" | translate }}</h1>
+    </ion-list-header>
+    <span *ngFor="let item of customer.customer_contacts, let i = index" (click)="goDetailCustomerContact(i)">
+      <ion-item text-wrap>
+        <ion-avatar item-start>
+          <ion-icon class="increase-font-size" name="contact"></ion-icon>
+        </ion-avatar>
+        <p>{{item.first_name}}</p>
+        <p>{{item.last_name}}</p>
+        <ion-avatar item-end>
+          <ion-icon class="md-36" md-name="chevron_right"></ion-icon>
+        </ion-avatar>
+      </ion-item>
+    </span>
+  </ion-list>
+  <ion-item no-lines>
+    <br>
+  </ion-item>
+
+  <ion-fab bottom right (click)="clickIonFab()">
+    <button ion-fab color="primary">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button color="primary" ion-fab (click)="editCustomer()">
+        <ion-icon name="create"></ion-icon>
+        <ion-label>{{"msg_edit" | translate }}</ion-label>
+      </button>
+      <button ion-fab color="primary" (click)="createCustomerContact()">
+        <ion-icon name="add"></ion-icon>
+        <ion-label>{{"msg_add_customer_contact" | translate }}</ion-label>
+      </button>
+      <button ion-fab color="primary" (click)="delete()">
+        <ion-icon md-name="delete" class="md-18"></ion-icon>
+        <ion-label>{{"msg_remove"|translate}}</ion-label>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

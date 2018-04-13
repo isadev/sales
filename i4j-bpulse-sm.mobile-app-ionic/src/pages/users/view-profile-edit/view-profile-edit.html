@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title> {{ "user_edit_profile_title" | translate}} </ion-title>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #registerForm="ngForm" [formGroup]="profile_form">
+    <ion-item>
+      <ion-label stacked> {{ "name" | translate}} </ion-label>
+      <ion-input [(ngModel)]="old_first_name" formControlName="first_name" type="text">
+        {{old_first_name}}
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!profile_form.controls.first_name.valid  && (profile_form.controls.first_name.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{ "last_name" | translate}} </ion-label>
+      <ion-input [(ngModel)]="old_last_name" formControlName="last_name" type="text">
+        {{old_last_name}}
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!profile_form.controls.last_name.valid  && (profile_form.controls.last_name.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{ "email" | translate}} </ion-label>
+      <ion-input [(ngModel)]="old_email" formControlName="email" type="text">
+        {{old_email}}
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!profile_form.controls.email.valid  && (profile_form.controls.email.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item no-lines></ion-item>
+    <button (click)="saveForm()" ion-button type="submit" block [disabled]="!registerForm.form.valid" full>
+      {{"btn_save"|translate}}
+    </button>
+  </form>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-content padding>
+  <div class="logo-home">
+    <img src="assets/imgs/logo.png" alt="" srcset="">
+  </div>
+  <form (ngSubmit)="login()" #registerForm="ngForm">
+    <ion-item>
+      <ion-input pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" required
+        type="email" [(ngModel)]="data.email" name="email" placeholder="{{ 'email' | translate }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="password" [(ngModel)]="data.pwd" name="password" placeholder="{{'password' | translate }}"></ion-input>
+    </ion-item>
+
+    <br>
+    <a (click)="recoveryPwd()">{{ "forgot_password" | translate }}</a>
+    <br>
+    <br>
+    <button ion-button type="submit" block [disabled]="!registerForm.form.valid">{{"start_session"|translate}}</button>
+  </form>
+
+
+</ion-content>

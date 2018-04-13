@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> {{ "product_list_title" | translate}} </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="btnSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-toolbar *ngIf="press_search" no-border-top>
+    <ion-searchbar [showCancelButton]="shouldShowCancel" (keyup.enter)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" [refreshingText]="msg_please_wait"></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <span *ngFor="let product of products, let i = index" (click)="selectProduct(product)">
+      <ion-item no-lines [class.selected]="product.selected">
+        <ion-avatar item-start>
+          <img src="{{product.image}}"> <!-- ruta de la imagen -->
+        </ion-avatar>
+        <label>
+          {{ "product_name" | translate }}
+        </label>
+        <p>
+          {{product.name}}
+        </p>
+        <label>
+          {{ "product_code" | translate }}
+        </label>
+        <p>
+          {{product.code}}
+        </p>
+        <p *ngIf="!product.show">
+          {{ "not_available" | translate}}
+        </p>
+        <ion-avatar item-end *ngIf="show_chevron">
+          <ion-icon class="md-36" md-name="chevron_right"></ion-icon>
+        </ion-avatar>
+      </ion-item>
+    </span>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <button *ngIf="show_button_add" ion-button type="button" color="primary" full (click)="addProduct()">{{"msg_add_purchase_order_product"|translate}}</button>
+</ion-content>

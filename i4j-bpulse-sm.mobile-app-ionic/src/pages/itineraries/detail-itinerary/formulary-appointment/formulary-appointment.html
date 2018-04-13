@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{'formulary_appointment_title' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="saveForm()" #registerForm="ngForm" [formGroup]="createFormularyForm">
+    <ion-list>
+      <span *ngFor="let item of data_to_formulary, let i of index">
+        <span *ngIf="item.question_type.id == 2">
+          <!-- Si es un checkbox/toggle -->
+          <ion-label text-wrap> {{item.question.label}}</ion-label>
+          <ion-item no-lines>
+            <ion-toggle formControlName="{{item.form}}" [(ngModel)]="item.toggle_value" color="primary"></ion-toggle>
+          </ion-item>
+        </span>
+
+        <span *ngIf="item.question_type.id == 1">
+          <ion-item>
+            <!-- Si es un input -->
+            <ion-label stacked> {{item.question.label}} </ion-label>
+            <ion-input [(ngModel)]="item.input_answer" type="text" formControlName="{{item.form}}">
+              {{item.input_answer}}
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="!createFormularyForm.controls[item.form].valid  && (createFormularyForm.controls[item.form].dirty || submitAttempt)">
+            <p class="invalid"> {{"form_validate"|translate}}</p>
+          </ion-item>
+        </span>
+      </span>
+    </ion-list>
+    <ion-item text-center no-lines>
+      <button ion-button type="submit" block [disabled]="!registerForm.form?.valid" full> {{"btn_save"|translate}}
+      </button>
+    </ion-item>
+  </form>
+</ion-content>

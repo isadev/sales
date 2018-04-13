@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{"customer_list_title"|translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="btnSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-toolbar *ngIf="press_search" no-border-top>
+    <ion-searchbar [showCancelButton]="shouldShowCancel" (keyup.enter)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" [refreshingText]="msg_please_wait"></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <span *ngFor="let customer of customer_list, let i = index" (click)="goToDetailCustomer(i)">
+      <ion-list-header text-wrap>
+        <ion-avatar item-start>
+          <ion-icon class="increase-font-size" name="contact"></ion-icon>
+        </ion-avatar>
+        <h2>{{customer.name}}</h2>
+        <ion-avatar item-end>
+          <ion-icon class="md-36" md-name="chevron_right"></ion-icon>
+        </ion-avatar>
+      </ion-list-header>
+    </span>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab color="primary" (click)="addNewCustomer()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

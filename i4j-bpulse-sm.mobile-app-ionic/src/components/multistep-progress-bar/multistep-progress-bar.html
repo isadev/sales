@@ -1,0 +1,35 @@
+<!-- Barra de movimiento superior -->
+<div class="progress">
+  <span *ngFor="let step of steps; let i = index">
+    <div class="circle" [class.finished]="currentStep == 5" [class.done]="step <= currentStep">
+      <span class="label" [class.finished]="currentStep == 5">{{ step }}</span>
+    </div>
+    <span *ngIf="i != steps.length - 1" class="bar" [class.finished]="currentStep == 5" [class.done]="step < currentStep" [class.active]="step == currentStep"></span>
+  </span>
+  <div class="center_text">
+    <span> {{ "state_appointment" | translate }}: {{ position }} . {{ current_state }}
+    </span>
+    <div text-center class="center_content">
+      <ion-icon item-left *ngIf="((currentStep > 1) && (itinerary.last_itinerary_position <= 4) && (itinerary.status.id < 5))"
+        class="md-36" md-name="chevron_left" (click)="moveBackward()"></ion-icon>
+      <span>
+        
+        <!-- <img src="xxx" [alt]="current_state"> -->
+      </span>
+      <ion-icon item-right *ngIf="((currentStep < 5) && (itinerary.last_itinerary_position <= 4) && (itinerary.status.id < 5))" class="md-36" md-name="chevron_right" (click)="moveFoward()"></ion-icon>
+    </div>
+    <ion-item text-center no-lines>
+      <button color="secondary" *ngIf="itinerary.last_itinerary_position <= 4" [disabled]="itinerary.status.id >= 5" ion-button small (click)="movement_button_state(currentStep)">{{ next_step }}</button>
+    </ion-item>
+  </div>
+</div>
+
+<ion-item text-center no-lines>
+  <span *ngIf="currentStep == 5">
+    <button color="secondary" (click)="view_formulary(1)" ion-button small>{{"see_formulary_checking"|translate}}</button>
+    <button color="secondary" (click)="view_formulary(2)" ion-button small>{{"see_formulary_chekout"|translate}}</button>
+  </span>
+  <ion-item text-center no-lines *ngIf="itinerary.last_itinerary_position < 5 && itinerary.status.id < 5">
+    <button color="secondary" ion-button small (click)="cancellItinerary()">{{ "cancell_itinerary"|translate }}</button>
+  </ion-item>
+</ion-item>

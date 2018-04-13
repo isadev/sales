@@ -1,0 +1,11 @@
+page-appointment-info-header {
+    .state.disabled {
+        color: rgba(0, 0, 0, 0.2);
+        & p{
+            color: rgba(0, 0, 0, 0.2);
+        }
+        & .avatar_color{
+            color: rgba(0, 0, 0, 0.2);
+        }
+    }
+}

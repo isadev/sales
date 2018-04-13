@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ purchase_order_title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #registerForm="ngForm" [formGroup]="create_purchase_form">
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_code"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_purchase_order_code" formControlName="purchase_order_code" type="text">
+        {{old_purchase_order_code}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_purchase_form.controls.purchase_order_code.valid  && (create_purchase_form.controls.purchase_order_code.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_discount"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_purchase_order_discount" formControlName="purchase_order_discount" type="number">
+        {{old_purchase_order_discount}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_purchase_form.controls.purchase_order_discount.valid  && (create_purchase_form.controls.purchase_order_discount.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_order_date_time" | translate}} </ion-label>
+      <ion-datetime [(ngModel)]="old_purchase_order_order_date_time" [displayFormat]="date_format" [monthNames]="date_month_name"
+        [monthShortNames]="date_month_short" [dayNames]="date_days_name" [dayShortNames]="date_days_short" [min]="date_min"
+        [max]="date_max" formControlName="purchase_order_order_date_time">
+      </ion-datetime> {{ old_purchase_order_order_date_time }}
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_delivery_date_time" | translate}} </ion-label>
+      <ion-datetime [(ngModel)]="old_purchase_order_delivery_date_time" [displayFormat]="date_format" [monthNames]="date_month_name"
+        [monthShortNames]="date_month_short" [dayNames]="date_days_name" [dayShortNames]="date_days_short" [min]="date_min"
+        [max]="date_max" formControlName="purchase_order_delivery_date_time">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_delivery_address"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_purchase_order_delivery_address" formControlName="purchase_order_delivery_address" type="text">
+        {{old_purchase_order_delivery_address}}
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_purchase_form.controls.purchase_order_delivery_address.valid  && (create_purchase_form.controls.purchase_order_delivery_address.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_city"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_purchase_order_city" (keyup)=filter() formControlName="purchase_order_city" type="text">
+        {{old_purchase_order_city}}
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_purchase_form.controls.purchase_order_city.valid  && (create_purchase_form.controls.purchase_order_city.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+    <div class="suggestions" *ngIf="filtered_city_list?.length > 0">
+      <ul *ngFor="let city of filtered_city_list">
+        <li>
+          <a (click)="select(city)">{{city}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <ion-item>
+      <ion-label stacked> {{"purchase_order_payment_method"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_purchase_order_payment_method" (keyup)=filterPayment() formControlName="purchase_order_payment_method"
+        type="text">
+        {{old_purchase_order_payment_method}}
+      </ion-input>
+    </ion-item>
+    <div class="suggestions" *ngIf="filtered_list_payment?.length > 0">
+      <ul *ngFor="let item of filtered_list_payment">
+        <li>
+          <a (click)="selectPayment(item)">{{item}}</a>
+        </li>
+      </ul>
+    </div>
+    <ion-item *ngIf="!create_purchase_form.controls.purchase_order_payment_method.valid  && (create_purchase_form.controls.purchase_order_payment_method.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+  </form>
+
+  <ion-list>
+    <ion-list-header>
+      <h1>{{"products_subtitle"|translate}}</h1>
+    </ion-list-header>
+    <span *ngFor="let item_product of item_product_list_added">
+      <ion-item>
+        <p> {{ "product_name" | translate }} </p>
+        <h3>{{item_product.name}}</h3>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked> {{ "product_quantity" | translate }} </ion-label>
+        <ion-input [(ngModel)]="item_product.formulary_input_quantity" type="number" (ngModelChange)="validate($event)">
+          {{item_product.formulary_input_quantity}}
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked> {{ "product_discount" | translate }} </ion-label>
+        <ion-input [(ngModel)]="item_product.formulary_input_discount" type="number" (ngModelChange)="validate($event)">
+          {{item_product.formulary_input_discount}}
+        </ion-input>
+      </ion-item>
+    </span>
+  </ion-list>
+
+  <ion-item no-lines>
+  </ion-item>
+
+  <button ion-button color="primary" type="button" ion-button block full (click)="goSelectProduct()"> {{"btn_add"|translate}} </button>
+
+  <button (click)="saveForm()" ion-button type="submit" block [disabled]="!registerForm.form.valid" full>
+    {{"btn_save"|translate}}
+  </button>
+</ion-content>

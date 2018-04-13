@@ -1,0 +1,66 @@
+<ion-menu [content]="content">
+  <!-- Menu selector de estados -->
+  <span class="menu_state_workday">
+    <ul *ngIf="show_list">
+      <li (click)="changeState('active')">
+        <ion-icon item-start class="separated_icon_right md-18" color="aprovement" md-name="brightness_1"></ion-icon> {{"active"|translate}}</li>
+      <li (click)="changeState('gone')">
+        <ion-icon item-start class="separated_icon_right md-18" color="gone" name="time"></ion-icon> {{"gone"|translate}}</li>
+      <li (click)="changeState('offline')">
+        <ion-icon item-start class="separated_icon_right md-18" color="danger" md-name="brightness_1"></ion-icon> {{"offline"|translate}} </li>
+    </ul>
+  </span>
+  <!--persistent="true" para incluir ambos botones-->
+  <ion-header>
+    <ion-toolbar text-center>
+      <ion-avatar>
+        <ion-icon class="logo_start_menu" name="contact"></ion-icon>
+      </ion-avatar>
+      {{ user_log }}
+      <br>
+      <div class="container_state" (click)="showMenu($event)">
+        <ion-label stacked> {{"state_appointment" |translate}} : </ion-label>
+        <br>
+        <div class="separator_bottom_selector">
+          <span class="state_user">
+            <span *ngIf="(state_user == 'active')">
+              <ion-icon item-start class="separated_icon_right md-18" color="aprovement" md-name="brightness_1"></ion-icon> {{"active"|translate}}
+            </span>
+            <span *ngIf="(state_user == 'gone')">
+              <ion-icon item-start class="separated_icon_right md-18" color="gone" name="time"></ion-icon> {{"gone"|translate}}
+            </span>
+            <span *ngIf="(state_user == 'offline')">
+              <ion-icon item-start class="separated_icon_right md-18" color="danger" md-name="brightness_1"></ion-icon> {{"offline"|translate}}
+            </span>
+            <span class="separated_icon">v</span>
+          </span>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          {{p.title | translate}}
+          <ion-avatar *ngIf="p.position >= 0" item-end>
+            <ion-icon class="md-36" md-name="chevron_right"></ion-icon>
+          </ion-avatar>
+          <ion-avatar *ngIf="p.position < 0" item-end>
+            <ion-icon class="md-36" name="log-out"></ion-icon>
+          </ion-avatar>
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<!--<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>-->

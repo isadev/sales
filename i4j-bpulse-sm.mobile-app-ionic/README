@@ -1,0 +1,35 @@
+Instalacion del proyecto Sales Mobile
+
+1.- Instalar el android studio desde la pagina oficial
+2.- Iniciar un proyecto nuevo desde android studio para que descargue el sdk
+3.- Crear un emulador bajo la version de android 8 (oreo) API 26, cuyo tipo del emulador es PIXEL o NEXUS 5X 
+(o algun otro que permita realizar respaldo a la base de datos sin encriptar)
+4.- Copiar en el archivo ~/.bashrc el path hacia el sdk y el platform tools, similar a este 
+    export ANDROID_HOME=/user_home/Android/Sdk
+    export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+5.- Descargar la version jdk8 de oracle.
+5.1.- Configurar la variable de entorno de Java (Java HOME). Al momento del desarrollo se utilizo la version:
+    *.- java version "1.8.0_144"
+    *.- Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+    *.- Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
+Quedando la variable de entorno de la siguiente manera.
+    JAVA_HOME=/usr/lib/jvm/java-8-oracle
+6.- Instalar el gradle (por repositorio (desde la consola de la maquina))
+7.- Aceptar los terminos y condiciones del sdk, si no los han aceptado aun, ejecutar el siguiente comando
+    *.- cd /user_home/Android/sdk/tools/bin
+    *.- ./sdkmanager --licenses
+    y aceptar las licencias
+8.- Si no existe la carpeta "resources" en la raiz del proyecto, iniciar un proyecto nuevo con el siguiente comando
+    *.- ionic start myApp sidemenu
+    y copiar la carpeta "resources" y pegarla en la del proyecto deseado.
+9.- Iniciar el emulador o conectar el dispositivo con las opciones de desarrollador activas
+Por ultimo ejecutar 
+    *.- ionic cordova run android/ios --debug
+
+10.- Para debugear la applicacion ir al navegador:
+    *.- Herramientas para desarrolladores
+    *.- Pulsar los tres puntos al final a la derecha (antes de la x)
+    *.- Seleccinar "More tools"
+    *.- Seleccionar "Remote Devices"
+    *.- Seleccionar el nombre del emulador que indique el webView
+    *.- Seleccionar la opcion Inspect, del lado derecho de la pantalla

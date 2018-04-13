@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> {{customer_title}} </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #registerForm="ngForm" [formGroup]="create_customer_form">
+    <ion-item>
+      <ion-label stacked> {{"name"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_name" formControlName="customer_name" type="text">
+        {{old_customer_name}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_customer_form.controls.customer_name.valid  && (create_customer_form.controls.customer_name.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"city"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_city_name" (keyup)=filterCity() formControlName="customer_city_name" type="text">
+        {{old_customer_city_name}}
+      </ion-input>
+    </ion-item>
+    <div class="suggestions" *ngIf="filtered_city_list?.length > 0">
+      <ul *ngFor="let city of filtered_city_list" (click)="select(city)">
+        <li>
+          <a>{{city}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <ion-item *ngIf="!create_customer_form.controls.customer_city_name.valid  && (create_customer_form.controls.customer_city_name.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"phone"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_phone" formControlName="customer_phone" type="number">
+        {{old_customer_phone}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_customer_form.controls.customer_phone.valid  && (create_customer_form.controls.customer_phone.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"address"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_address" formControlName="customer_address" type="text">
+        {{old_customer_address}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_customer_form.controls.customer_address.valid  && (create_customer_form.controls.customer_address.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"postal_code"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_postal_code" formControlName="customer_postal_code" type="number">
+        {{old_customer_postal_code}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_customer_form.controls.customer_postal_code.valid  && (create_customer_form.controls.customer_postal_code.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"nit"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_nit" formControlName="customer_nit" type="text">
+        {{old_customer_nit}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!create_customer_form.controls.customer_nit.valid  && (create_customer_form.controls.customer_nit.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+  </form>
+
+  <ion-list>
+    <ion-list-header text-wrap>
+      <h1>{{ "contacts_subtitle" | translate }}</h1>
+    </ion-list-header>
+    <span *ngFor="let item_contact of item_contact_list_added, let i = index" (ngModelChange)="validate($event)">
+      <ion-item>
+        <p> {{item_contact.first_name}} </p>
+        <p> {{item_contact.last_name}} </p>
+      </ion-item>
+    </span>
+  </ion-list>
+
+  <ion-item no-lines>
+  </ion-item>
+
+  <button ion-button color="primary" type="button" ion-button block full (click)="goSelectContactsFromList()"> {{"btn_add"|translate}} </button>
+
+  <button (click)="saveForm()" ion-button type="submit" block [disabled]="!registerForm.form.valid" full>
+    {{"btn_save"|translate}}
+  </button>
+
+
+</ion-content>

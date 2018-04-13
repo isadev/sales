@@ -1,0 +1,11 @@
+page-user-appointment-header {
+    // Para volver a poner el boton de añadir en posicion fixed por encapsulamiento de div
+    .fab-fixed{
+        position: fixed;
+        right: 16px;
+    }
+    //Evitar el spaciado al fondo y el backdrop se vea bien
+    .list-md {
+        //margin: -1px 0 12px;
+    }
+}

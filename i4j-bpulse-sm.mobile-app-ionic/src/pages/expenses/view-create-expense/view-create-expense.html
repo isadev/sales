@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{"view_create_expense_title" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+    
+    
+<ion-content padding>
+  <form (ngSubmit)="saveForm()" #registerForm="ngForm" [formGroup]="createExpensesForm">
+    <ion-item>
+      <ion-label stacked> {{"view_expenses_item"|translate}} </ion-label>
+      <ion-input  
+        [(ngModel)]="old_item" 
+        formControlName="expenseItem" 
+        type="text">
+          {{old_item}}
+      </ion-input>
+    </ion-item>
+    
+    <ion-item 
+      *ngIf="!createExpensesForm.controls.expenseItem.valid  && (createExpensesForm.controls.expenseItem.dirty || submitAttempt)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"view_expenses_description"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_description" formControlName="expenseDescription" type="text">
+          {{old_description}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item 
+      *ngIf="!createExpensesForm.controls.expenseDescription.valid  && (createExpensesForm.controls.expenseDescription.dirty || submitAttempt)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label stacked> {{"view_expenses_value"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_value" formControlName="expenseValue" type="number">
+          {{old_value}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item 
+      *ngIf="!createExpensesForm.controls.expenseValue.valid  && (createExpensesForm.controls.expenseValue.dirty || submitAttempt)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <span (click)="takePicture()">
+      <ion-item>
+        <ion-label stacked> {{"view_expenses_atteched"|translate}}</ion-label>
+        <ion-input [(ngModel)]="old_atteched" formControlName="expenseAtteched" type="text"></ion-input>
+        <ion-icon icon-end color="secondary" item-right name="camera"></ion-icon>
+      </ion-item>
+    </span>
+
+    <ion-item no-lines *ngIf="old_atteched_img.length > 2">
+      <img src="{{old_atteched_img}}" alt="img">
+    </ion-item> 
+    <button ion-button type="submit" name="camera" block [disabled]="!registerForm.form.valid" full> {{"btn_save"|translate}}
+    </button>
+  </form>
+</ion-content>
+    

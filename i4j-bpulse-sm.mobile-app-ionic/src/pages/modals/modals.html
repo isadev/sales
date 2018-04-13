@@ -1,0 +1,14 @@
+<ion-content padding class="modal">
+  <ion-buttons end>
+    <button class="btn_transparent" ion-button icon-only (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-buttons>
+  <span *ngIf="from_page === 'view_expenses_detail'">
+    <img src="assets/imgs/{{img_name}}" alt="factura">  
+  </span>
+
+  <span *ngIf="from_page === 'view_create_expenses'">
+    <img src="{{baseImage}}" *ngIf="baseImage" alt="factura">  
+  </span>
+</ion-content>

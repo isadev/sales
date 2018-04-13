@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar color="primary">
+    <ion-title> {{ expense_detail.item }} </ion-title>
+    <ion-buttons end *ngIf="itinerary_status_id < 5" (click)="showMenu($event)">
+        <button ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+        </button>
+    </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item >
+        <h3>{{ "view_expenses_item" | translate }}</h3>
+        <p> {{ expense_detail.item }}</p>
+    </ion-item>
+    <ion-item text-wrap>
+        <h3>{{ "view_expenses_description" | translate }}</h3>
+        <p>{{ expense_detail.description }}</p>
+    </ion-item>
+    <ion-item text-wrap>
+        <h3>{{ "view_expenses_value" | translate }}</h3>
+        <p>{{ expense_detail.value }}</p>
+    </ion-item>
+    <!-- <ion-item *ngIf="expense_detail.atteched.length != 2">
+        <h3>{{ "view_expenses_atteched" | translate }}</h3>
+        <p>{{ expense_detail.atteched }}</p>
+        <button ion-button small item-right (click)="show_img()">{{"see"|translate}}</button>
+    </ion-item> -->
+  </ion-list>
+</ion-content>

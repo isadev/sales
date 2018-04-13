@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ appointment_title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="saveForm()" #registerForm="ngForm" [formGroup]="create_appointment_form">
+    <ion-item>
+      <ion-label stacked> {{"user_date" | translate}} </ion-label>
+      <ion-datetime [(ngModel)]="edit_appointment_date" [displayFormat]="date_format" [monthNames]="date_month_name" [monthShortNames]="date_month_short"
+        [dayNames]="date_days_name" [dayShortNames]="date_days_short" [min]="date_min" [max]="date_max" formControlName="appointmentDate">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"user_hour"|translate}} </ion-label>
+      <ion-datetime [(ngModel)]="edit_appointment_hour" [displayFormat]="date_hour" formControlName="appointmentHour">
+
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"user_appointment_type"|translate}} </ion-label>
+      <ion-select [(ngModel)]="edit_appointment_type" formControlName="appointmentType">
+        <ion-option *ngFor="let o of itinerary_types" [value]="o.name">{{o.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"user_appointment_province"|translate}} </ion-label>
+      <ion-select (ionChange)="findCityOfProvinces($event)" [(ngModel)]="edit_appointment_province" formControlName="appointmentProvince">
+        <ion-option *ngFor="let o of provinces" [value]="o.name">{{o.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"user_appointment_city"|translate}} </ion-label>
+      <ion-select [(ngModel)]="edit_appointment_city" formControlName="appointmentCity">
+        <ion-option *ngFor="let o of citys" [value]="o.name">{{o.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"user_company"|translate}} </ion-label>
+      <ion-input (keyup)=filterCustomer() [(ngModel)]="edit_appointment_company_name" formControlName="appointmentCompanyName" type="text">
+        {{ edit_appointment_company_name }}
+      </ion-input>
+    </ion-item>
+
+    <div class="suggestions" *ngIf="filtered_list_customer?.length > 0">
+      <ul *ngFor="let customer of filtered_list_customer">
+        <li>
+          <a (click)="selectCustomer(customer)">{{customer}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <ion-item>
+      <ion-label stacked> {{"user_contact"|translate}} </ion-label>
+      <ion-input (keyup)=filterContact() [(ngModel)]="edit_appointment_contact" formControlName="appointmentContact" type="text">
+        {{edit_appointment_contact}}
+      </ion-input>
+    </ion-item>
+
+    <div class="suggestions" *ngIf="filtered_list_contact?.length > 0">
+      <ul *ngFor="let contact of filtered_list_contact">
+        <li>
+          <a (click)="selectContact(contact)">{{contact}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <ion-item>
+      <ion-label stacked> {{"user_appointment_address"|translate}} </ion-label>
+      <ion-input [(ngModel)]="edit_appointment_address" formControlName="appointmentAddress" type="text">
+        {{ edit_appointment_address }}
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"user_observations"|translate}} </ion-label>
+      <ion-input [(ngModel)]="edit_appointment_observations" formControlName="appointmentObservations" type="textarea">
+        {{ edit_appointment_observations }}
+      </ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+    </ion-item>
+
+    <button ion-button type="submit" block [disabled]="(!(registerForm.form.valid && correct_customer_contact && correct_customer))" color="secondary" full> {{"btn_action_create"|translate}}
+    </button>
+
+  </form>
+</ion-content>

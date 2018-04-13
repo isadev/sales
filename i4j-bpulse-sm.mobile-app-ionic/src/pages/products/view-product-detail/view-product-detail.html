@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{"product_detail_title"|translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <label>
+      {{ "product_name" | translate }}
+    </label>
+    <p>
+      {{product_detail.name}}
+    </p>
+  </ion-item>
+  <ion-item>
+    <label>
+      {{ "product_code" | translate }}
+    </label>
+    <p>
+      {{product_detail.code}}
+    </p>
+  </ion-item>
+  <ion-item>
+    <label>
+      {{ "product_category_name" | translate }}
+    </label>
+    <p>
+      {{product_detail?.product_category?.name}}
+    </p>
+  </ion-item>
+  <ion-item>
+    <label>
+      {{ "product_price" | translate }}
+    </label>
+    <p>
+      {{product_detail?.actual_price?.value}}
+    </p>
+  </ion-item>
+  <ion-item no-lines>
+    <!-- <img class="img-detail-product" src="{{product_detail.custom_image}}"> -->
+    <img class="img-detail-product" src="assets/imgs/check_green.jpg">
+  </ion-item>
+
+</ion-content>

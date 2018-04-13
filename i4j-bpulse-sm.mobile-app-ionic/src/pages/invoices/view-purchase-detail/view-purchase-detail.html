@@ -1,0 +1,104 @@
+<ion-header >
+  <ion-navbar color="primary">
+    <ion-title> {{ "detail_title" | translate}} </ion-title>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!-- Para el oscurecimiento del fondo cuando clicken en el ion-fab -->
+<div [class.darker]="show_ion_fab">
+</div>
+
+<ion-content padding >
+  <ion-list>
+    <ion-item>
+      <label for="purchase_order_customer">{{"purchase_order_customer"|translate}}</label>
+      <p id="purchase_order_customer" text-wrap> {{invoice?.customer.name}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_code">{{"purchase_order_code"|translate}}</label>
+      <p id="purchase_order_code" text-wrap> {{invoice?.code}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_discount">{{"purchase_order_discount"|translate}}</label>
+      <p id="purchase_order_discount" text-wrap> {{invoice?.discount}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_order_date_time">{{"purchase_order_order_date_time"|translate}}</label>
+      <p id="purchase_order_order_date_time" text-wrap> {{invoice?.order_date_format}}</p>
+    </ion-item>
+
+    <ion-item>
+      <label for="purchase_order_delivery_date_time">{{"purchase_order_delivery_date_time"|translate}}</label>
+      <p id="purchase_order_delivery_date_time" text-wrap> {{invoice?.delivery_date_format}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_delivery_address">{{"purchase_order_delivery_address"|translate}}</label>
+      <p id="purchase_order_delivery_address" text-wrap> {{invoice?.delivery_address}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_city">{{"purchase_order_city"|translate}}</label>
+      <p id="purchase_order_city" text-wrap> {{invoice?.city.name}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_client">{{"purchase_order_client"|translate}}</label>
+      <p id="purchase_order_client" text-wrap> {{invoice?.client.name}}</p>
+    </ion-item>
+    <ion-item>
+      <label for="purchase_order_payment_method">{{"purchase_order_payment_method"|translate}}</label>
+      <p id="purchase_order_payment_method" text-wrap> {{invoice?.payment_method.name}}</p>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header>
+      <h1>{{"product_list_title"|translate}}</h1>
+    </ion-list-header>
+    <span *ngFor="let invoice_product of invoice?.invoice_product, let i = index" (click)="deleteInvoiceProduct(invoice_product)">
+      <!-- Detalle de la info del producto -->
+      <ion-item text-wrap>
+        <label>
+          {{ "product_name" | translate }}
+        </label>
+        <p>{{invoice_product?.product.name}}</p>
+        <!-- Detalle de la cantidad del producto -->
+        <label>
+          {{ "product_quantity" | translate }}
+        </label>
+        <p>{{invoice_product?.quantity}}</p>
+        <label>
+          {{ "product_discount" | translate }}
+        </label>
+        <p>{{invoice_product?.discount}}</p>
+        <ion-avatar item-end>
+          <p class="item-delete">x</p>
+        </ion-avatar>
+      </ion-item>
+    </span>
+  </ion-list>
+
+  <ion-fab bottom right (click)="clickIonFab()">
+    <button ion-fab color="primary">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button color="primary" ion-fab (click)="editInvoice()">
+        <ion-icon name="create"></ion-icon>
+        <ion-label >{{"msg_edit_purchase_order" | translate }}</ion-label>
+      </button>
+      <button color="primary" ion-fab (click)="createInvoiceProduct()">
+        <ion-icon name="add"></ion-icon>
+        <ion-label>{{"msg_add_purchase_order_product" | translate }}</ion-label>
+      </button>
+      <button color="primary" ion-fab (click)="delete()">
+        <ion-icon md-name="delete" class="md-18"></ion-icon>
+        <ion-label>{{"msg_remove_invoice"|translate}}</ion-label>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

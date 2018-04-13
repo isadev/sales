@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title> {{ customer_contact_list_title }} </ion-title>
+    <ion-buttons end (click)="showMenu($event)">
+      <button ion-button icon-only (click)="editCustomer()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #registerForm="ngForm" [formGroup]="create_customer_contact_form">
+    <ion-item>
+      <ion-label stacked> {{"name"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_contact.first_name" formControlName="customer_contact_first_name" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_customer_contact_form.controls.customer_contact_first_name.valid  && (create_customer_contact_form.controls.customer_contact_first_name.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"last_name"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_contact.last_name" formControlName="customer_contact_last_name" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_customer_contact_form.controls.customer_contact_last_name.valid  && (create_customer_contact_form.controls.customer_contact_last_name.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"email"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_contact.email" formControlName="customer_contact_email" type="email">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_customer_contact_form.controls.customer_contact_email.valid  && (create_customer_contact_form.controls.customer_contact_email.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"phone"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_contact.phone" formControlName="customer_contact_phone" type="number">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_customer_contact_form.controls.customer_contact_phone.valid  && (create_customer_contact_form.controls.customer_contact_phone.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"mobile"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_contact.mobile" formControlName="customer_contact_mobile" type="number">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_customer_contact_form.controls.customer_contact_mobile.valid  && (create_customer_contact_form.controls.customer_contact_mobile.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> {{"job_title"|translate}} </ion-label>
+      <ion-input [(ngModel)]="old_customer_contact.job_title" formControlName="customer_contact_job" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!create_customer_contact_form.controls.customer_contact_job.valid  && (create_customer_contact_form.controls.customer_contact_job.dirty)">
+      <p class="invalid"> {{"form_validate"|translate}}</p>
+    </ion-item>
+  </form>
+
+  <ion-item no-lines>
+  </ion-item>
+
+  <button (click)="saveForm()" ion-button type="submit" block [disabled]="!registerForm.form.valid" full>
+    {{"btn_save"|translate}}
+  </button>
+</ion-content>

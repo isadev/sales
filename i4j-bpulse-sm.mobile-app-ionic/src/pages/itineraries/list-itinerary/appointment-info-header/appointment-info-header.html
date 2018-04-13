@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{"list_appointment_title"|translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="btnSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+  <ion-navbar>
+    <ion-tabs color="primary" tabsPlacement="top">
+      <ion-tab (ionSelect)="showDataUser(tab_params_list[0])" [root]="tabPage" [tabTitle]="tab_params_list[0].name" [rootParams]="tab_params_list[0]"></ion-tab>
+      <ion-tab (ionSelect)="showDataUser(tab_params_list[1])" [root]="tabPage" [tabTitle]="tab_params_list[1].name" [rootParams]="tab_params_list[1]"></ion-tab>
+      <ion-tab (ionSelect)="showDataUser(tab_params_list[2])" [root]="tabPage" [tabTitle]="tab_params_list[2].name" [rootParams]="tab_params_list[2]"></ion-tab>
+    </ion-tabs>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding swipe-vertically>
+  <ion-toolbar *ngIf="press_search" no-border-top>
+    <ion-searchbar [showCancelButton]="shouldShowCancel" (keyup.enter)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" [refreshingText]="msg_please_wait"></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+
+    <div *ngFor="let itinerary of itinerary_list; let list_position = index">
+      <ion-list-header>
+        {{itinerary.date}}
+      </ion-list-header>
+      <ion-item *ngFor="let detail of itinerary.data; let user_position = index" class="state" [class.disabled]="detail.status.id == 6"
+        (click)="detailInfoUserItinerary(detail)">
+        <ion-avatar item-start>
+          <ion-icon class="increase-font-size" name="contact"></ion-icon>
+        </ion-avatar>
+        <h1>{{detail.customer.address}}</h1>
+        <ion-icon color="aprovement" *ngIf="detail.status.id == 5" name="checkmark-circle" item-right></ion-icon>
+        <!-- si el estado es pendiente -->
+        <span *ngIf="detail.status.id < 5 ">
+          <h3>{{detail.customer.name}}</h3>
+          <h3>{{detail.customer.address}}</h3>
+        </span>
+        <!-- si el estado es cancelado -->
+        <span *ngIf="detail.status.id == 6">
+          <h3>{{detail.customer.name}}</h3>
+          <p>{{"appointment_cancelled"|translate}}</p>
+        </span>
+        <!-- si el estado es aprobado -->
+        <span *ngIf="detail.status.id == 5">
+          <h3>{{detail.customer.name}}</h3>
+          <p>{{"appointment_aprovement"|translate}}</p>
+        </span>
+        <ion-avatar item-end>
+          <ion-icon class="md-36" md-name="chevron_right"></ion-icon>
+        </ion-avatar>
+      </ion-item>
+    </div>
+
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="addAppointment()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

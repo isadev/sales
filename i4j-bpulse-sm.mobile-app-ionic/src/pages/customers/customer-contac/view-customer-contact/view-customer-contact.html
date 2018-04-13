@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title> {{ "customer_contact_title" | translate }} </ion-title>
+    <ion-buttons end (click)="showMenu($event)">
+      <button ion-button icon-only (click)="editCustomer()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!-- Para el oscurecimiento del fondo cuando clicken en el ion-fab -->
+<div [class.darker]="show_ion_fab">
+</div>
+
+<ion-content padding>
+  <ion-item>
+    <label stacked> {{"name"|translate}} </label>
+    <p>{{customer_contact.first_name}}</p>
+  </ion-item>
+
+  <ion-item>
+    <label stacked> {{"last_name"|translate}} </label>
+    <p>{{customer_contact.last_name}}</p>
+  </ion-item>
+
+  <ion-item>
+    <label stacked> {{"email"|translate}} </label>
+    <p>{{customer_contact.email}}</p>
+  </ion-item>
+
+  <ion-item>
+    <label stacked> {{"phone"|translate}} </label>
+    <p>{{customer_contact.phone}}</p>
+  </ion-item>
+
+  <ion-item>
+    <label stacked> {{"mobile"|translate}} </label>
+    <p>{{customer_contact.mobile}}</p>
+  </ion-item>
+
+  <ion-item>
+    <label stacked> {{"job"|translate}} </label>
+    <p>{{customer_contact.job_title}}</p>
+  </ion-item>
+
+  <ion-fab bottom right (click)="clickIonFab()">
+    <button ion-fab color="primary">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button color="primary" ion-fab (click)="editCustomerContact()">
+        <ion-icon name="create"></ion-icon>
+        <ion-label>{{"msg_edit" | translate }}</ion-label>
+      </button>
+      <button color="primary" ion-fab (click)="delete()">
+        <ion-icon md-name="delete" class="md-18"></ion-icon>
+        <ion-label>{{"msg_remove"|translate}}</ion-label>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

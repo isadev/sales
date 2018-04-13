@@ -1,0 +1,130 @@
+<ion-header>
+  <div [class.darker_header]="show_ion_fab">
+  </div>
+  <ion-navbar color="primary">
+    <ion-title> {{"user_appointment_title" | translate }}</ion-title>
+  </ion-navbar>
+  <ion-navbar>
+    <ion-tabs color="primary" tabsPlacement="top">
+      <ion-tab (ionSelect)="showDataUser(tab_params_list[0])" [root]="tabPage" tabIcon="calendar" [rootParams]="tab_params_list[0]"></ion-tab>
+      <ion-tab (ionSelect)="showDataUser(tab_params_list[1])" [root]="tabPage" tabIcon="pin" [rootParams]="tab_params_list[1]"></ion-tab>
+      <ion-tab (ionSelect)="showDataUser(tab_params_list[2])" [root]="tabPage3" tabIcon="play" [rootParams]="tab_params_list[2]"></ion-tab>
+    </ion-tabs>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <span *ngIf="tab_selected == 0">
+    <!-- Para el oscurecimiento del fondo cuando clicken en el ion-fab -->
+    <div [class.darker]="show_ion_fab">
+    </div>
+
+    <ion-list>
+      <ion-list-header color="header" class="user-appointment-detail">
+        <ion-avatar item-start>
+          <ion-icon class="increase-font-size" name="contact"></ion-icon>
+        </ion-avatar>
+        <h2>{{itinerary.date_format}}</h2>
+        <h3>{{"state_appointment"|translate}} : {{stateUserAppointment}}</h3>
+      </ion-list-header>
+
+      <ion-item text-wrap>
+        <h3>{{"contact_appointment"|translate}}: </h3>
+        <p>{{itinerary?.customer_contact?.first_name}} {{itinerary?.customer_contact?.last_name}}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <h3>{{"city"|translate}}: </h3>
+        <p>{{itinerary.city?.name}}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <h3>{{"province"|translate}}: </h3>
+        <p>{{itinerary.city?.province?.name}}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <h3>{{"company_appointment"|translate}}: </h3>
+        <p>{{itinerary.customer.name}}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <h3>{{"address_appointment"|translate}}:</h3>
+        <p>{{itinerary.address}}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <h3>{{"phone_appointment"|translate}}:</h3>
+        <p>{{itinerary.customer_contact?.phone}}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <h3>{{"observations_appointment"|translate}}:</h3>
+        <p>{{itinerary.observation}}</p>
+      </ion-item>
+
+    </ion-list>
+
+    <hr>
+
+    <ion-list>
+      <ion-item no-lines>
+        <h3>{{"purchase_order_appointment"|translate}}</h3>
+        <button ion-button small item-right [disabled]="((itinerary.status.id == 5) || (itinerary.status.id == 6)) && !have_invoice" (click)="invoiceAction()">{{invoice_action_msg}}</button>
+      </ion-item>
+      <ion-item no-lines>
+        <h3>{{"expenses_appointment" | translate }}</h3>
+        <button ion-button small item-right (click)="viewExpenses()">{{"see"|translate}}</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-item no-lines>
+
+    </ion-item>
+
+    <!-- Si va a editar una cita que aun esta en proceso -->
+    <ion-fab *ngIf="!((itinerary.status.id == 5) || (itinerary.status.id == 6) )" bottom right class="fab-fixed" (click)="clickIonFab()">
+      <button ion-fab color="primary">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <ion-fab-list side="top">
+        <button color="primary" ion-fab (click)="callUser()">
+          <ion-icon name="call"></ion-icon>
+          <ion-label>{{"msg_call_contact"|translate}}</ion-label>
+        </button>
+        <button color="primary" ion-fab (click)="createExpense()">
+          <ion-icon name="logo-usd"></ion-icon>
+          <ion-label>{{"msg_add_expenses" | translate }}</ion-label>
+        </button>
+        <button color="primary" ion-fab (click)="editItinerary()">
+          <ion-icon name="create"></ion-icon>
+          <ion-label>{{"msg_edit"|translate}}</ion-label>
+        </button>
+        <button color="primary" ion-fab (click)="editCustomer()">
+          <ion-icon name="create"></ion-icon>
+          <ion-label>{{"view_edit_customer_title"|translate}}</ion-label>
+        </button>
+        <button color="primary" ion-fab (click)="editContact()">
+          <ion-icon name="create"></ion-icon>
+          <ion-label>{{"view_edit_customer_contact_title"|translate}}</ion-label>
+        </button>
+        <button color="primary" ion-fab (click)="addContact()">
+          <ion-icon name="create"></ion-icon>
+          <ion-label>{{"msg_add_customer_contact"|translate}}</ion-label>
+        </button>
+      </ion-fab-list>
+    </ion-fab>
+
+
+  </span>
+
+  <span *ngIf="tab_selected == 1">
+    
+  </span>
+
+  <span *ngIf="tab_selected == 2"> <!--[disabled]="itinerary.status.id == 6"-->
+    <multistep-progress-bar [itinerary]="itinerary"></multistep-progress-bar>
+  </span>
+</ion-content>

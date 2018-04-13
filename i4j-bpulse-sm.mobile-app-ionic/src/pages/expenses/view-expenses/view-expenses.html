@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title> {{"view_expenses_title" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" [refreshingText]="msg_please_wait"></ion-refresher-content>
+  </ion-refresher>
+  <ion-item-group>
+    <ion-item *ngFor="let expense of list_expenses, let i = index" (click)="detail_expenses(i)">
+      <ion-label text-wrap>{{expense.item}}</ion-label>
+      <ion-avatar item-end>
+        <ion-icon class="md-36" md-name="chevron_right"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+  </ion-item-group>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
