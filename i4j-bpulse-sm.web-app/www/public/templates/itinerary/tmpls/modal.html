@@ -1,0 +1,75 @@
+<div id="content-modal-events">
+    <div class="media col-lg-12">
+        <div class="media-left">
+            <span class="fa-stack fa-2x stack-element">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-map fa-stack-1x text-primary"></i>
+            </span>
+        </div>
+        <div class="media-body media-content-events-modal">
+            <h4 class="media-heading" data-i18n="tables.itineraries.address">{{ i18next.t("tables.itineraries.address") }}</h4>
+            {{ event.data.address }}
+        </div>
+    </div>
+    <div class="media col-lg-6">
+        <div class="media-left">
+            <span class="fa-stack fa-2x stack-element">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-car fa-stack-1x text-primary"></i>
+            </span>
+        </div>
+        <div class="media-body media-content-events-modal">
+            <h4 class="media-heading" data-i18n="tables.itineraries.city_id">{{ i18next.t("tables.itineraries.city_id") }}</h4>
+            {{ event.data.city.name }}
+        </div>
+    </div>
+    <div class="media col-lg-6">
+        <div class="media-left">
+            <span class="fa-stack fa-2x stack-element">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-calendar fa-stack-1x text-primary"></i>
+            </span>
+        </div>
+        <div class="media-body media-content-events-modal">
+            <h4 class="media-heading" data-i18n="tables.itineraries.date_time">{{ i18next.t("tables.itineraries.date_time") }}</h4>
+            {{ moment(event.start).format("DD-MM-YYYY HH:mm:ss") }}
+        </div>
+    </div>
+    <div class="media col-lg-6">
+        <div class="media-left">
+            <span class="fa-stack fa-2x stack-element">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-user fa-stack-1x text-primary"></i>
+            </span>
+        </div>
+        <div class="media-body media-content-events-modal">
+            <h4 class="media-heading" data-i18n="tables.itineraries.customer_id">{{ i18next.t("tables.itineraries.customer_id") }}</h4>
+            {{ event.data.customer.name }}
+        </div>
+    </div>
+    <div class="media col-lg-6">
+        <div class="media-left">
+            <span class="fa-stack fa-2x stack-element">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-arrows-h fa-stack-1x text-primary"></i>
+            </span>
+        </div>
+        <div class="media-body media-content-events-modal">
+            <h4 class="media-heading" data-i18n="tables.itineraries.itinerary_type_id">{{ i18next.t("tables.itineraries.itinerary_type_id") }}</h4>
+            {{ event.data.itinerary_type.name }}
+        </div>
+    </div>
+    <div class="media col-lg-12">
+        <div class="media-left">
+            <span class="fa-stack fa-2x stack-element">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-address-book fa-stack-1x text-primary"></i>
+            </span>
+        </div>
+        <div class="media-body media-content-events-modal">
+            <h4 class="media-heading" data-i18n="tables.itineraries.customer_contact_id">{{ i18next.t("tables.itineraries.customer_contact_id") }}</h4>
+            {{ event.data.customer_contact.name }} - {{ event.data.customer_contact.mobile }} - {{ event.data.customer_contact.phone }} - {{ event.data.customer_contact.email }}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,318 @@
+{
+  "defaults": {
+    "product":{
+      "click_select": "Click to select",
+      "click_cancel_select": "Cancel or reset changes",
+      "max_size": "Max file size",
+      "image": "Image"
+    }
+  },
+  "views": {
+    "login": {
+      "labelform": "Access",
+      "labelAccess": "Login to your account",
+      "textRight": "Tracking application and sales administration",
+      "textBy": "Por Bpulse.io",
+      "labelRemember": "Remember me",
+      "labelForgotPass": "Forgot password?",
+      "buttonLogin": "LOGIN"
+    },
+    "profile": {
+      "recoverypass": {
+        "newpasssword": "New password",
+        "confirmpasssword": "Confirm password"
+      }
+    }
+  },
+  "tables": {
+    "default": {
+      "city": "City",
+      "province": "Province",
+      "country": "Country",
+      "seller": "Seller",
+      "select_all": "All",
+      "customer": "Customer",
+      "filters": "Filters"
+    },
+    "buttons": {
+      "create": "Create new",
+      "edit": "Edit",
+      "delete": "Delete",
+      "impersonate": "Impersonate",
+      "approve": "Approve",
+      "filter": "Filter"
+    },
+    "actions": "Actions",
+    "users":{
+      "name": "Name",
+        "email": "Email",
+        "google_push_token": "Google token",
+        "bpulse_user_token": "Bpulse token",
+        "password": "Password",
+        "repeatepassword": "Repeate password",
+        "role_id": "Role",
+        "last_name": "Last name",
+        "first_name": "First name",
+        "status": "Status"
+    },
+    "clients": {
+      "name": "Name",
+      "contact_first_name": "Contact firstname",
+      "contact_last_name": "Contact lastname",
+      "code": "Code",
+      "phone": "Phone",
+      "address": "Address",
+      "postel_code": "Postel code",
+      "email": "Email",
+      "bpulse_url": "Bpulse URL",
+      "bpulse_app_token": "Bpulse Token",
+      "city_id": "City",
+      "status": "Status"
+    },
+    "products": {
+      "code": "Code",
+      "barcode": "Barcode",
+      "name": "Name",
+      "custom_image": "Image",
+      "image": "Image",
+      "product_category_id": "Category",
+      "client_id": "Client"
+    },
+    "product_categories": {
+      "id": "ID",
+      "name": "Name",
+      "client_id": "Client"
+    },
+    "questionnaires": {
+      "label": "Label",
+      "enabled": "Status",
+      "status": "Status",
+      "itinerary_type_id": "Itinerary type",
+      "client_id": "Client"
+    },
+    "customers": {
+      "name": "Name",
+      "phone": "Phone",
+      "address": "Address",
+      "postal_code": "Postal code",
+      "nit": "Nit",
+      "city_id": "City",
+      "geolocation": "Geolocation",
+      "client_id": "Client"
+    },
+    "customer_assign": {
+      "date_updated": "Updated",
+      "date_created": "Created",
+      "status": "Status",
+      "customer": "Customer",
+      "customers": "Customers",
+      "seller": "Seller",
+      "assign": "Assign",
+      "pendding": "Pending"
+    },
+    "customer_contacts": {
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "job_title": "Job title",
+      "customer_id": "Customer"
+    },
+    "itineraries": {
+      "address": "Address",
+      "date_time": "Date time",
+      "city_id": "City",
+      "geolocation": "Geolocation",
+      "user_id": "User",
+      "customer_id": "Customer",
+      "itinerary_type_id": "Itinerary type",
+      "status_id": "Status",
+      "customer_contact_id": "Customer contact",
+      "client_id": "Client",
+      "observation": "Observation"
+    },
+    "invoices": {
+      "customer_id": "Customer",
+      "itinerary_id": "Itinerary",
+      "code": "Code",
+      "discount": "Discount",
+      "order_date_time": "Order date",
+      "delivery_date_time": "Delivery date",
+      "delivery_address": "Delivery address",
+      "city_id": "City",
+      "client_id": "Client",
+      "payment_method_id": "Payment method"
+    },
+    "session": {
+      "email_recovery": "Email"
+    }
+  },
+  "sidebar": {
+    "menu":{
+      "defaults": {
+        "itinerary_list": "List",
+        "approve_customer": "Approve assign",
+        "customer_list": "List",
+        "itinerary_calendar": "Calendar"
+      },
+      "home": "Home",
+      "users": "Users",
+      "clients": "Clients",
+      "products": "Products",
+      "product_categories": "Product Categories",
+      "customers": "Customers",
+      "itineraries": "Itineraries",
+      "questionnaires": "Questionnaires",
+      "sales": "Sales",
+      "invoices": "Invoices"
+    }
+  },
+  "navbar": {
+    "menu": {
+      "user": {
+        "profile": "My profile",
+        "setting": "Setting",
+        "messages": "Message",
+        "logout": "Logout"
+      },
+      "help": {
+        "help": "Help",
+        "use": "Basic use",
+        "security": "Security",
+        "troubleshooting": "Troubleshooting"
+      },
+      "notifications": {
+        "seeall": "See all notifications"
+      }
+    }
+  },
+  "footer": {
+      "rights": "All Rights Reserved",
+      "privacity": "Privacy and Terms"
+  },
+  "selects": {
+      "placeholder": {
+        "select_country": "Select a country",
+        "select_province": "Select a province",
+        "select_city": "Select a city",
+        "select_category": "Select a category",
+        "select_customer": "Select a customer",
+        "select_itinerary_type": "Select a type",
+        "select_status": "Select a status",
+        "select_customer_contact": "Select a customer contact",
+        "select_role": "Select a role",
+        "select_payment_method": "Select a method",
+        "select_itinerary": "Select a itinerary",
+        "select_seller": "Select a seller"
+      }
+  },
+  "modals": {
+    "title": {
+      "profile": {
+        "edit": "Edit profile"
+      },
+      "user": {
+        "create": "Create user",
+        "edit": "Edit user"
+      },
+      "client": {
+        "create": "Create client",
+        "edit": "Edit client"
+      },
+      "product": {
+        "create": "Create product",
+        "edit": "Edit product"
+      },
+      "product_category": {
+        "create": "Create category",
+        "edit": "Edit category"
+      },
+      "questionnaire": {
+        "create": "Create questionnaire",
+        "edit": "Edit questionnaire"
+      },
+      "customer": {
+        "create": "Create customer",
+        "edit": "Edit customer"
+      },
+      "customer_contact": {
+        "create": "Create contact",
+        "edit": "Edit contact"
+      },
+      "itineraries": {
+        "create": "Create itinerary",
+        "edit": "Edit itinerary"
+      },
+      "invoices": {
+        "create": "Create invoice",
+        "edit": "Edit invoice"
+      },
+      "calendar": {
+        "itinerary": "Itinerary calendar"
+      },
+      "session": {
+        "recoverPassword": "Recover Password"
+      }
+    },
+    "buttons": {
+      "user": {
+        "create": "Save user",
+        "edit": "Update user",
+        "close": "Close"
+      },
+      "client": {
+        "create": "Save client",
+        "edit": "Update client",
+        "close": "Close"
+      },
+      "product": {
+        "create": "Save product",
+        "edit": "Update product",
+        "close": "Close"
+      },
+      "product_category": {
+        "create": "Save category",
+        "edit": "Update category",
+        "close": "Close"
+      },
+      "questionnaire": {
+        "create": "Save questionnaire",
+        "edit": "Update questionnaire",
+        "close": "Close"
+      },
+      "customer": {
+        "create": "Save customer",
+        "edit": "Update customer",
+        "load": "Load",
+        "close": "Close"
+      },
+      "customer_assign": {
+        "create": "Assign",
+        "close": "Cerrar"
+      },
+      "customer_contact": {
+        "create": "Save contact",
+        "edit": "Update contact",
+        "close": "Close"
+      },
+      "itinerary": {
+        "create": "Save itinerary",
+        "edit": "Update itinerary",
+        "close": "Close"
+      },
+      "invoice": {
+        "create": "Save invoice",
+        "edit": "Update invoice",
+        "close": "Close"
+      },
+      "calendar": {
+          "close": "Cerrar"
+      },
+      "session": {
+        "recoverPassword": "Recovery Password",
+        "close": "Close"
+      }
+    }
+  }
+}

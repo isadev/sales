@@ -1,0 +1,59 @@
+<form id="form-customer" name="form-customer">
+           
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="name" data-i18n="tables.customers.name"></label>
+            <input type="text" name="name" id="name" value="{{ customer.name }}" class="form-control" />
+            <input type="hidden" name="id" id="id" value="{{ customer.id }}"/>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="phone" data-i18n="tables.customers.phone"></label>
+            <input type="text" name="phone" value="{{ customer.phone }}" id="phone" class="form-control"/>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="postal_code" data-i18n="tables.customers.postal_code"></label>
+            <input type="text" name="postal_code" value="{{ customer.postal_code }}" id="postal_code" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="nit" data-i18n="tables.customers.nit"></label>
+            <input type="text" name="nit" value="{{ customer.nit }}" id="nit" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="address" data-i18n="tables.customers.address"></label>
+            <textarea type="text" name="address" id="address" class="form-control">{{ customer.address }}</textarea>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="country_id" data-i18n="tables.default.country"></label>
+            <select name="country_id" class="form-control" id="country_select_ajax">
+                <option value="{{ customer.country.id }}">{{ customer.country.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="province_select_ajax" data-i18n="tables.default.province"></label>
+            <select name="province_id" class="form-control" id="province_select_ajax">
+                <option value="{{ customer.province.id }}">{{ customer.province.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="city_select_ajax" data-i18n="tables.default.city"></label>
+            <select name="city_id" class="form-control" id="city_select_ajax">
+                <option value="{{ customer.city.id }}">{{ customer.city.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</form>

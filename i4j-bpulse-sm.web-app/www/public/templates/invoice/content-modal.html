@@ -1,0 +1,93 @@
+<form id="form-invoice" name="form-invoice">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="delivery_address" data-i18n="tables.invoices.delivery_address"></label>
+            <textarea name="delivery_address" id="delivery_address" class="form-control input-sm">{{ invoice.delivery_address }}</textarea>
+            <input type="hidden" name="id" value="{{ invoice.id }}" id="id" />
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="select_customer" data-i18n="tables.invoices.customer_id"></label>
+            <select name="customer_id" id="select_customer" class="form-control">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="select_itinerary" data-i18n="tables.invoices.itinerary_id"></label>
+            <select name="itinerary_id" id="select_itinerary" class="form-control">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+            <label for="code" data-i18n="tables.invoices.code"></label>
+            <input type="text" name="code" value="{{ invoice.code }}" id="code" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+            <label for="discount" data-i18n="tables.invoices.discount"></label>
+            <input type="text" name="discount" value="{{ invoice.discount }}" id="discount" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="order_date_time_datetimepicker" data-i18n="tables.invoices.order_date_time"></label>
+            <div class='input-group date'>
+                <input type='text' name="order_date_time" id='order_date_time_datetimepicker' value="{{ invoice.order_date_time }}" class="form-control input-sm"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="delivery_date_time_datetimepicker" data-i18n="tables.invoices.delivery_date_time"></label>
+            <div class='input-group date'>
+                <input type='text' name="delivery_date_time" id='delivery_date_time_datetimepicker' value="{{ invoice.delivery_date_time }}" class="form-control input-sm"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="payment_method_id" data-i18n="tables.invoices.payment_method_id"></label>
+            <select name="payment_method_id" class="form-control input-sm" id="select_payment_method">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="country_id" data-i18n="tables.default.country"></label>
+            <select name="country_id" class="form-control input-sm" id="country_select_ajax">
+                <option value="{{ invoice.country.id }}">{{ invoice.country.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="province_select_ajax" data-i18n="tables.default.province"></label>
+            <select name="province_id" class="form-control input-sm" id="province_select_ajax">
+                <option value="{{ invoice.province.id }}">{{ invoice.province.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="city_select_ajax" data-i18n="tables.default.city"></label>
+            <select name="city_id" class="form-control input-sm" id="city_select_ajax">
+                <option value="{{ invoice.city.id }}">{{ invoice.city.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</form>

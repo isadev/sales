@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Phalcon PHP Framework</title>
+        <link href="/assets/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/vendor/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/vendor/pnotify/dist/pnotify.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+            <?php echo $this->getContent(); ?>
+        </div>
+        <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="/assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="/assets/vendor/pnotify/dist/pnotify.js"></script>
+        <script src="/js/domain/DomainAlertMessages.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#table').DataTable();
+            });
+            </script>
+    </body>
+</html>

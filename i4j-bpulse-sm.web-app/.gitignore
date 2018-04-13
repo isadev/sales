@@ -1,0 +1,35 @@
+# Files IDE, Text Editors, Logs
+.idea
+www/.vscode
+.vscode
+www/build/
+www/*.log
+
+# Directory Database
+db_data/
+
+# Cache, session files and logs (Phalcon3)
+www/cache/*
+www/public/temp/*
+!www/cache/.gitkeep
+!www/public/temp/.gitkeep
+
+# Parameters
+www/app/config/parameters.yml
+www/app/config/parameters.ini
+
+# Managed by Composer
+www/composer.lock
+www/vendor/*
+!www/vendor/.gitkeep
+
+# Assets and user uploads, Bower components
+www/public/js/app.min.js
+www/public/js/assets.min.js
+www/public/css/app.min.css
+www/public/css/assets.min.css
+www/public/assets/vendor/*
+www/public/assets/vendor/
+!www/public/assets/.gitkeep
+
+www/public/files/uploads/products/

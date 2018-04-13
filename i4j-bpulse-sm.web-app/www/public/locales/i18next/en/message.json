@@ -1,0 +1,110 @@
+{
+  "message": {
+    "alert": {
+      "title":{
+        "users": {
+          "delete": "You want to delete the user?"
+        },
+        "clients": {
+          "delete": "You want to delete the client?"
+        },
+        "products": {
+          "delete": "You want to delete the product?"
+        },
+        "product_categories": {
+          "delete": "You want to delete the Category?"
+        },
+        "questionnaires": {
+          "delete": "You want to delete the Questionnaire?"
+        },
+        "customers": {
+          "delete": "You want to delete the Customer?"
+        },
+        "customer_assign": {
+          "delete": "You want to delete the Assignation?",
+          "approve": "You want to approve the Assignation?"
+        },
+        "customer_contacts": {
+          "delete": "You want to delete the Customer Contact?"
+        },
+        "itineraries": {
+          "delete": "You want to delete the Itinerary?"
+        },
+        "invoices": {
+          "delete": "You want to delete the Invoice?"
+        }
+      },
+      "text": {
+        "users": {
+          "delete": "Press OK if you are sure"
+        },
+        "clients": {
+          "delete": "Press OK if you are sure"
+        },
+        "products": {
+          "delete": "Press OK if you are sure"
+        },
+        "product_categories": {
+          "delete": "Press OK if you are sure"
+        },
+        "questionnaires": {
+          "delete": "Press OK if you are sure"
+        },
+        "customers": {
+          "delete": "Press OK if you are sure"
+        },
+        "customer_assign": {
+          "delete": "Press OK if you are sure",
+          "approve": "Press OK if you are sure"
+        },
+        "customer_contacts": {
+          "delete": "Press OK if you are sure"
+        },
+        "itineraries": {
+          "delete": "Press OK if you are sure"
+        },
+        "invoices": {
+          "delete": "Press OK if you are sure"
+        }
+      }
+    },
+    "pnotify": {
+      "upload": {
+        "error": {
+          "title": "!I sorry",
+          "message": "Select a file image"
+        }
+      },
+      "request": {
+        "success": {
+          "title": "!Excelent",
+          "message": "Request processed"
+        },
+        "error": {
+          "title": "!I sorry",
+          "message": "Request processed"
+        }
+      },
+      "data_empty": {
+        "error": {
+          "title": "!I sorry",
+          "message": "you must choose a option"
+        }
+      },
+      "recoveryPassword": {
+        "success": {
+          "title": "!Excelent",
+          "message": "You have been sent a password recovery email"
+        },
+        "error": {
+          "title": "!I sorry",
+          "message": "The password recovery has been fail"
+        }
+      }
+    },
+    "customer_assign": {
+      "Title": "Customers assigns",
+      "text": "Select a seller for load the customers"
+    }
+  }
+}

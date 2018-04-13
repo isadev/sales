@@ -1,0 +1,93 @@
+version: '2'
+
+services:
+  # servidor web
+  nginx:
+    build: ./docker/nginx/
+    container_name: Nginx
+    hostname: salesnginx
+    volumes:
+      # app folder
+      - ./www:/webapp:z
+      - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    working_dir: /webapp
+    ports:
+      # http port
+      - 8081:80
+    links:
+      - dbmysql
+      - php
+    networks:
+      red:
+        aliases:
+          - www.salesweb.test
+        ipv4_address: 172.16.0.33
+  #PHP 7 Language
+  php:
+    build: ./docker/php/
+    container_name: Nginx-PHP7
+    hostname: salesphp
+    volumes:
+      - ./www:/webapp:z
+      - ./docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    links:
+      - dbmysql
+    networks:
+      red:
+        aliases:
+          - salesphp
+        ipv4_address: 172.16.0.34
+  # base de datos
+  dbmysql:
+    build: ./docker/mysql/
+    container_name: Nginx-MYSQL
+    hostname: salesdb
+    volumes:
+      # hold the persisted data
+      - ./db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      red:
+        aliases:
+          - salesdb
+        ipv4_address: 172.16.0.35
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: Nginx-Phpmyadmin
+    hostname: salesphpmyadmin
+    links:
+      - dbmysql
+    ports:
+        - 8082:80
+    environment:
+        PMA_USER: root
+        PMA_PASSWORD: docker
+        PMA_HOST: dbmysql
+    networks:
+      red:
+        aliases:
+          - salesphpmyadmin
+        ipv4_address: 172.16.0.36
+      
+volumes:
+  db-data: {}
+
+# En esta seccion se define la IP del host a la cual se van a mapear
+# los puertos locales con los expuestos en los contenedores
+# (parámetro ports: en los servicios definidos arriba). De esta forma
+# se pueden ejecutar varios proyectos al mismo tiempo.
+#
+
+networks:
+  red:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.0.0/24
+        gateway: 172.16.0.1
+
+# End of file

@@ -1,0 +1,55 @@
+<!-- MAIN -->
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <!-- OVERVIEW -->
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    <h3 class="panel-title" data-i18n="message:message.customer_assign.Title"></h3>
+                    <p class="panel-subtitle" data-i18n="message:message.customer_assign.text"></p>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="select_seller" data-i18n="tables.default.seller"></label>
+                                <select name="sellerId" id="select_seller" class="form-control">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <br>
+                            <button id="loadCustomers" class="btn btn-success btn-block" data-i18n="modals.buttons.customer.load"></button>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="select_customer" data-i18n="tables.default.customer"></label>
+                                <select name="customerId" id="select_customer" class="form-control">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <br>
+                            <button id="assignCustomer" class="btn btn-success btn-block" data-i18n="modals.buttons.customer_assign.create"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-customers">
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" data-i18n="tables.customer_assign.customers"></h3>
+                    </div>
+                    <div class="panel-body" id="container-table-assign">
+                        <table class="table table-striped" id="table-customers" style="width: 100%;"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->

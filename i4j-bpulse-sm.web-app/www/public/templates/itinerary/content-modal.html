@@ -1,0 +1,84 @@
+<form id="form-itinerary" name="form-itinerary">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="address" data-i18n="tables.itineraries.address"></label>
+            <textarea type="text" name="address" id="address" class="form-control input-sm">{{ itinerary.address }}</textarea>
+            <input type="hidden" name="id" id="id" value="{{ itinerary.id }}"/>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="datetime_datetimepicker" data-i18n="tables.itineraries.date_time"></label>
+            <div class='input-group date'>
+                <input type='text' name="date_time" id='datetime_datetimepicker' value="{{ itinerary.date_time }}" class="form-control input-sm" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="select_status" data-i18n="tables.itineraries.status_id"></label>
+            <select name="status_id" id="select_status" class="form-control">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="select_itinerary_type" data-i18n="tables.itineraries.itinerary_type_id"></label>
+            <select name="itinerary_type_id" id="select_itinerary_type" class="form-control">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="country_id" data-i18n="tables.default.country"></label>
+            <select name="country_id" class="form-control" id="country_select_ajax">
+                <option value="{{ itinerary.country.id }}">{{ itinerary.country.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="province_select_ajax" data-i18n="tables.default.province"></label>
+            <select name="province_id" class="form-control" id="province_select_ajax">
+                <option value="{{ itinerary.province.id }}">{{ itinerary.province.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="city_select_ajax" data-i18n="tables.default.city"></label>
+            <select name="city_id" class="form-control" id="city_select_ajax">
+                <option value="{{ itinerary.city.id }}">{{ itinerary.city.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="select_customer" data-i18n="tables.itineraries.customer_id"></label>
+            <select name="customer_id" id="select_customer" class="form-control">
+                <option value="{{ itinerary.customer.id }}">{{ itinerary.customer.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="select_customer_contact" data-i18n="tables.itineraries.customer_contact_id"></label>
+            <select name="customer_contact_id" id="select_customer_contact" class="form-control">
+                <option value="{{ itinerary.customer_contact.id }}">{{ itinerary.customer_contact.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="observation" data-i18n="tables.itineraries.observation"></label>
+            <textarea type="text" name="observation" id="observation" class="form-control input-sm">{{ itinerary.observation }}</textarea>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</form>

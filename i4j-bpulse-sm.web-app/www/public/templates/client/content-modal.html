@@ -1,0 +1,82 @@
+<form id="form-client" name="form-client">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="name" data-i18n="tables.clients.name"></label>
+            <input type="text" name="name" value="{{ client.name }}" id="name" class="form-control input-sm"/>
+            <input type="hidden" name="id" value="{{ client.id }}" id="id"/>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="contact_first_name" data-i18n="tables.clients.contact_first_name"></label>
+            <input type="text" name="contact_first_name" value="{{ client.contact_first_name }}" id="contact_first_name" class="form-control input-sm"/>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="contact_last_name" data-i18n="tables.clients.contact_last_name"></label>
+            <input type="text" name="contact_last_name" value="{{ client.contact_last_name }}" id="contact_last_name" class="form-control input-sm"/>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="phone" data-i18n="tables.clients.phone"></label>
+            <input type="text" id="phone" name="phone" value="{{ client.phone }}" class="form-control input-sm" />
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+            <label for="postel_code" data-i18n="tables.clients.postel_code"></label>
+            <input type="text" id="postel_code" name="postel_code" value="{{ client.postel_code }}" class="form-control input-sm" />
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <label class="form-check-label" for="enable" data-i18n="tables.clients.status"></label>
+        <div class="form-check">
+            <input class="form-check-input" name="enable" {% if(client.enable==1){ %} checked {% } %} id="enable" type="checkbox">
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="address" data-i18n="tables.clients.address"></label>
+            <input type="text" name="address" id="address" value="{{ client.address }}" class="form-control input-sm" />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="email" data-i18n="tables.clients.email"></label>
+            <input type="text" name="email" id="email" value="{{ client.email }}" class="form-control input-sm" />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="bpulse_url" data-i18n="tables.clients.bpulse_url"></label>
+            <input type="text" id="bpulse_url" name="bpulse_url" value="{{ client.bpulse_url }}" class="form-control input-sm" />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="country_id" data-i18n="tables.default.country"></label>
+            <select name="country_id" class="form-control input-sm" id="country_select_ajax">
+                <option value="{{ client.country.id }}">{{ client.country.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="province_select_ajax" data-i18n="tables.default.province"></label>
+            <select name="province_id" class="form-control input-sm" id="province_select_ajax">
+                <option value="{{ client.province.id }}">{{ client.province.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="city_select_ajax" data-i18n="tables.default.city"></label>
+            <select name="city_id" class="form-control input-sm" id="city_select_ajax">
+                <option value="{{ client.city.id }}">{{ client.city.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</form>

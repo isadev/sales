@@ -1,0 +1,110 @@
+{
+    "message": {
+        "alert": {
+            "title": {
+                "users": {
+                    "delete": "¿Desea eliminar el Usuario?"
+                },
+                "clients": {
+                    "delete": "¿Desea eliminar el Cliente?"
+                },
+                "products": {
+                    "delete": "¿Desea eliminar el Producto?"
+                },
+                "product_categories": {
+                    "delete": "¿Desea eliminar la Categoria?"
+                },
+                "questionnaires": {
+                    "delete": "¿Desea eliminar el Cuestionario?"
+                },
+                "customers": {
+                    "delete": "¿Desea eliminar el Representante?"
+                },
+                "customer_assign": {
+                    "delete": "¿Desea eliminar la asignación?",
+                    "approve": "¿Desea aprobar la asignación?"
+                },
+                "customer_contacts": {
+                    "delete": "¿Desea eliminar el Contacto?"
+                },
+                "itineraries": {
+                    "delete": "¿Desea eliminar el Itinerario?"
+                },
+                "invoices": {
+                    "delete": "¿Desea eliminar la Factura?"
+                }
+            },
+            "text": {
+                "users": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "clients": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "products": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "product_categories": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "questionnaires": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "customers": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "customer_assign": {
+                    "delete": "Presione OK si está seguro",
+                    "approve": "Presione OK si está seguro"
+                },
+                "customer_contacts": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "itineraries": {
+                    "delete": "Presione OK si está seguro"
+                },
+                "invoices": {
+                    "delete": "Presione OK si está seguro"
+                }
+            }
+        },
+        "pnotify": {
+            "upload": {
+                "error": {
+                    "title": "!Lo siento",
+                    "message": "Seleccione un archivo de imagen"
+                }
+            },
+            "request": {
+                "success": {
+                    "title": "!Excelente",
+                    "message": "Solicitud procesada con éxito"
+                },
+                "error": {
+                    "title": "!Lo siento",
+                    "message": "Solicitud no procesada"
+                }
+            },
+            "data_empty": {
+                "error": {
+                    "title": "!Lo siento",
+                    "message": "Debes elegir una opción"
+                }
+            },
+            "recoveryPassword": {
+                "success": {
+                    "title": "!Excelente",
+                    "message": "Le han enviado un correo electrónico de recuperación de contraseña"
+                },
+                "error": {
+                    "title": "!Lo siento",
+                    "message": "La recuperación de contraseña ha fallado"
+                }
+            }
+        },
+        "customer_assign": {
+            "Title": "Asignación de Clientes",
+            "text": "Seleccione un vendedor para cargar a los clientes"
+        }
+    }
+}

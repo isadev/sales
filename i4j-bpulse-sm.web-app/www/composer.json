@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phalcon/incubator": "^3.2",
+        "phalcon-ext/mailer": "~2.0",
+        "phpunit/phpunit": "6.0",
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}

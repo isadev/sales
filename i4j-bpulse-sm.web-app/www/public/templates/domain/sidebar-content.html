@@ -1,0 +1,39 @@
+<!-- LEFT SIDEBAR -->
+<div id="sidebar-nav" class="sidebar">
+    <div class="sidebar-scroll">
+        <nav>
+            {% for(var index in sections){ %}
+            <ul class="nav">
+                {% for(i = 0; i < sections[index].side_menu.length; i++){   
+                    var text = "sidebar.menu." + sections[index].side_menu[i].name; 
+                %}
+                <li>
+                    <a  {% if(sections[index].side_menu[i].child_menu.length > 0){ %} data-target="#{{ sections[index].side_menu[i].target }}" data-toggle="collapse" {% }else{ %} href="{% if(sections[index].side_menu[i].child_menu.length === 0){ %} /#{{ sections[index].side_menu[i].name }} {% }else{ %} javascript:;{% } %}" {% } %} {% if(currentPage === sections[index].side_menu[i].currentPage){ %} class="active" {% } %}>
+                        <i class="{{ sections[index].side_menu[i].icon }}"></i>
+                        {% if(sections[index].side_menu[i].child_menu.length > 0){ %}
+                            <i class="icon-submenu fa fa-caret-left"></i>
+                        {% } %}
+                        <span data-i18n="{{ text }}"></span>
+                    </a>
+                    {% if(sections[index].side_menu[i].child_menu.length > 0){ %}
+                        <div id="{{ sections[index].side_menu[i].target }}" class="collapse">
+                            <ul class="nav">
+                            {% for(iChild = 0; iChild < sections[index].side_menu[i].child_menu.length; iChild++){ 
+                                var textChild="sidebar.menu.defaults." + sections[index].side_menu[i].child_menu[iChild].name;
+                                var name= sections[index].side_menu[i].child_menu[iChild].name;
+                            %}
+                                <li>
+                                    <a href="/#{{ name }}" data-i18n="{{ textChild }}"></a>
+                                </li>
+                            {% } %}
+                            </ul>
+                        </div>
+                    {% } %}
+                </li>
+                {% } %}
+            </ul>
+            {% } %}
+        </nav>
+    </div>
+</div>
+<!-- END LEFT SIDEBAR -->

@@ -1,0 +1,24 @@
+<form id="form-questionnaire" name="form-questionnaire">
+    <div class="col-lg-5">
+        <div class="form-group">
+            <label for="label" data-i18n="tables.questionnaires.label"></label>
+            <input type="text" name="label" id="label" value="{{ questionnaire.label }}" class="form-control input-sm" />
+            <input type="hidden" name="id" id="id" value="{{ questionnaire.id }}"/>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="select_itinerary_type" data-i18n="tables.questionnaires.itinerary_type_id"></label>
+            <select name="itinerary_type_id" id="select_itinerary_type" class="form-control">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <label class="form-check-label" for="enabled" data-i18n="tables.questionnaires.enabled"></label>
+        <div class="form-check">
+            <input class="form-check-input" name="enabled" {% if(questionnaire.enabled==1){ %} checked {% } %} id="enabled" type="checkbox">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</form>

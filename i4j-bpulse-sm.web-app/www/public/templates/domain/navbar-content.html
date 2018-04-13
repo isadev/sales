@@ -1,0 +1,108 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="brand">
+        <a href="/#home">
+            <img src="/img/logo-app.png" alt="Home" class="img-responsive logo">
+        </a>
+    </div>
+    <div class="container-fluid">
+        <div class="navbar-btn">
+            <button type="button" class="btn-toggle-fullwidth">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+        </div>
+        <div class="navbar-btn navbar-btn-right">
+            <a class="btn btn-success update-pro" href="#">
+                <i class="fa fa-bar-chart-o"></i>
+                <span>Bpulse</span>
+            </a>
+        </div>
+        <div id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="badge bg-danger">5</span>
+                    </a>
+                    <ul class="dropdown-menu notifications">
+                        <li>
+                            <a href="#" class="notification-item">
+                                <span class="dot bg-warning"></span>System space is almost full</a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <span class="dot bg-danger"></span>You have 9 unfinished tasks</a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <span class="dot bg-success"></span>Monthly report is available</a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <span class="dot bg-warning"></span>Weekly meeting in 1 hour</a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <span class="dot bg-success"></span>Your request has been approved</a>
+                        </li>
+                        <li>
+                            <a href="#" class="more" data-i18n="navbar.menu.notifications.seeall">See all notifications</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-question-circle-o"></i>
+                        <span data-i18n="navbar.menu.help.help"></span>
+                        <i class="icon-submenu fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a data-i18n="navbar.menu.help.use">Basic Use</a>
+                        </li>
+                        <li>
+                            <a data-i18n="navbar.menu.help.security">Security</a>
+                        </li>
+                        <li>
+                            <a data-i18n="navbar.menu.help.troubleshooting">Troubleshooting</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user-circle-o"></i>
+                        <span id="navbar-name-user">{{ app.session.user.get("first_name") }} {{ app.session.user.get("last_name") }}</span>
+                        <i class="icon-submenu fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/#profile">
+                                <i class="fa fa-user-o"></i>
+                                <span data-i18n="navbar.menu.user.profile"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-envelope-o"></i>
+                                <span data-i18n="navbar.menu.user.messages"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog"></i>
+                                <span data-i18n="navbar.menu.user.setting"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/auth/logout" class="btn-default">
+                                <i class="fa fa-sign-out"></i>
+                                <span data-i18n="navbar.menu.user.logout">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END NAVBAR -->

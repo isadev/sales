@@ -1,0 +1,316 @@
+{
+    "defaults": {
+        "product": {
+            "click_select": "Click para seleccionar",
+            "click_cancel_select": "Cancelar o resetear cambios",
+            "max_size": "Tamaño máximo",
+            "image": "Imagen"
+        }
+    },
+    "views": {
+        "login": {
+            "labelform": "Access",
+            "labelAccess": "Ingrese a su cuenta",
+            "textRight": "Aplicación de seguimieto y administración de ventas",
+            "textBy": "Por Bpulse.io",
+            "labelRemember": "Recordarme",
+            "labelForgotPass": "¿Olvidaste tu contraseña?",
+            "buttonLogin": "ENTRAR"
+        },
+        "profile": {
+            "recoverypass": {
+                "newpasssword": "Nueva contraseña",
+                "confirmpasssword": "Confirmar contraseña"
+            }
+        }
+    },
+    "tables": {
+        "default": {
+            "city": "Ciudad",
+            "province": "Provincia",
+            "country": "Pais",
+            "seller": "Vendedor",
+            "select_all": "Todos",
+            "customer": "Cliente",
+            "filters": "Filtros"
+        },
+        "buttons": {
+            "create": "Crear nuevo",
+            "edit": "Editar",
+            "delete": "Eliminar",
+            "approve": "Aprobar",
+            "impersonate": "Administrar",
+            "filter": "Filtrar"
+        },
+        "actions": "Acciones",
+        "users": {
+            "name": "Nombre",
+            "email": "Correo",
+            "google_push_token": "Google token",
+            "bpulse_user_token": "Bpulse token",
+            "password": "Contraseña",
+            "repeatepassword": "Repita contraseña",
+            "role_id": "Rol",
+            "last_name": "Apellidos",
+            "first_name": "Nombres",
+            "status": "Estatus"
+        },
+        "clients": {
+                "name": "Nombre",
+                "contact_first_name": "Nombre contacto",
+                "contact_last_name": "Apellido contacto",
+                "code": "Código",
+                "phone": "Télefono",
+                "address": "Dirección",
+                "postel_code": "Código postal",
+                "email": "Correo",
+                "bpulse_url": "Bpulse URL",
+                "bpulse_app_token": "Bpulse token",
+                "city_id": "Ciudad",
+                "status": "Estatus"
+        },
+        "products": {
+            "code": "Código",
+            "barcode": "Código de barra",
+            "name": "Nombre",
+            "custom_image": "Imagen",
+            "image": "Imagen",
+            "product_category_id": "Categoria",
+            "client_id": "Cliente"
+        },
+        "product_categories": {
+            "id": "ID",
+            "name": "Nombre",
+            "client_id": "Cliente"
+        },
+        "questionnaires": {
+            "label": "Etiqueta",
+            "enabled": "Estatus",
+            "status": "Estatus",
+            "itinerary_type_id": "Tipo de itinerario",
+            "client_id": "Cliente"
+        },
+        "customers": {
+            "name": "Nombre",
+            "phone": "Celular",
+            "address": "Dirección",
+            "postal_code": "Código postal",
+            "nit": "Nit",
+            "city_id": "Ciudad",
+            "geolocation": "Geolocalización",
+            "client_id": "Cliente"
+        },
+        "customer_assign": {
+            "date_updated": "Actualizado por",
+            "date_created": "Creado por",
+            "status": "Estatus",
+            "customer": "Cliente",
+            "customers": "Clientes",
+            "seller": "Vendedor",
+            "assign": "Asignado",
+            "pendding": "Pendiente"
+        },
+        "customer_contacts": {
+            "first_name": "Nombres",
+            "last_name": "Apellidos",
+            "email": "Correo",
+            "phone": "Teléfono",
+            "mobile": "Celular",
+            "job_title": "Trabajo",
+            "customer_id": "Representante"
+        },
+        "itineraries": {
+            "address": "Dirección",
+            "date_time": "Fecha/hora",
+            "city_id": "Ciudad",
+            "geolocation": "Ubicación",
+            "user_id": "Usuario",
+            "customer_id": "Responsable",
+            "itinerary_type_id": "Tipo de itinerario",
+            "status_id": "Estatus",
+            "customer_contact_id": "Contacto responsable",
+            "client_id": "Cliente",
+            "observation": "Observación"
+        },
+        "invoices": {
+            "customer_id": "Responsable",
+            "itinerary_id": "Itinerario",
+            "code": "Código",
+            "discount": "Descuento",
+            "order_date_time": "Fecha orden",
+            "delivery_date_time": "Fecha entrega",
+            "delivery_address": "Dirección entrega",
+            "city_id": "Ciudad",
+            "client_id": "Cliente",
+            "payment_method_id": "Método de pago"
+        },
+        "session": {
+            "email_recovery": "Correo Electrónico"
+        }
+    },
+    "sidebar": {
+        "menu": {
+            "defaults": {
+                "itinerary_list": "Lista",
+                "approve_customer": "Aprobar asignación",
+                "assign_customer": "Asignar a vendedor",
+                "customer_list": "Lista",
+                "itinerary_calendar": "Calendario"
+            },
+            "home": "Inicio",
+            "users": "Usuarios",
+            "clients": "Clientes",
+            "products": "Productos",
+            "product_categories": "Categoria de Productos",
+            "customers": "Representantes",
+            "itineraries": "Itinerarios",
+            "questionnaires": "Cuestionarios",
+            "sales": "Ventas",
+            "invoices": "Facturas"
+        }
+    },
+    "navbar": {
+        "menu": {
+            "user": {
+                "profile": "Mi perfil",
+                "setting": "Configuración",
+                "messages": "Mensajes",
+                "logout": "Salir"
+            },
+            "help": {
+                "help": "Ayuda",
+                "use": "Uso básico",
+                "security": "Seguridad",
+                "troubleshooting": "Solución de problemas"
+            },
+            "notifications": {
+                "seeall": "Todas las notificaciones"
+            }
+        }
+    },
+    "footer": {
+        "rights": "Todos los Derechos Reservados",
+        "privacity": "Términos de Privacidad"
+    },
+    "selects": {
+        "placeholder": {
+            "select_country": "Seleccione un pais",
+            "select_province": "Seleccione una provincia",
+            "select_city": "Seleccione una ciudad",
+            "select_category": "Seleccione una categoria",
+            "select_customer": "Seleccione un responsable",
+            "select_itinerary_type": "Seleccione un tipo",
+            "select_status": "Seleccione un estatus",
+            "select_customer_contact": "Seleccione un contacto",
+            "select_role": "Seleccione un rol",
+            "select_payment_method": "Seleccione un método",
+            "select_itinerary": "Seleccione un itinerario",
+            "select_seller": "Seleccione un vendedor"
+        }
+    },
+    "modals": {
+        "title": {
+            "user": {
+                "create": "Crear usuario",
+                "edit": "Editar usuario"
+            },
+            "client": {
+                "create": "Crear cliente",
+                "edit": "Editar cliente"
+            },
+            "product": {
+                "create": "Crear producto",
+                "edit": "Editar producto"
+            },
+            "product_category": {
+                "create": "Crear categoria",
+                "edit": "Editar categoria"
+            },
+            "questionnaire": {
+                "create": "Crear cuestionario",
+                "edit": "Editar cuestionario"
+            },
+            "customer": {
+                "create": "Crear representante",
+                "edit": "Editar representante"
+            },
+            "customer_contact": {
+                "create": "Crear contacto",
+                "edit": "Editar contacto"
+            },
+            "itinerary": {
+                "create": "Crear itinerary",
+                "edit": "Editar itinerary"
+            },
+            "invoice": {
+                "create": "Crear factura",
+                "edit": "Editar factura"
+            },
+            "calendar": {
+                "itinerary": "Calendario de itinerarios"
+            },
+            "session": {
+                "recoverPassword": "Recuperación de contraseña"
+            }
+        },
+        "buttons": {
+            "user": {
+                "create": "Guardar usuario",
+                "edit": "Actualizar usuario",
+                "close": "Cerrar"
+            },
+            "client": {
+                "create": "Guardar cliente",
+                "edit": "Actualizar cliente",
+                "close": "Cerrar"
+            },
+            "product": {
+                "create": "Guardar producto",
+                "edit": "Actualizar producto",
+                "close": "Cerrar"
+            },
+            "product_category": {
+                "create": "Guardar categoria",
+                "edit": "Actualizar categoria",
+                "close": "Cerrar"
+            },
+            "questionnaire": {
+                "create": "Guardar questionnaire",
+                "edit": "Actualizar questionnaire",
+                "close": "Cerrar"
+            },
+            "customer": {
+                "create": "Guardar representante",
+                "edit": "Actualizar representante",
+                "load": "Cargar",
+                "close": "Cerrar"
+            },
+            "customer_assign": {
+                "create": "Asignar",
+                "close": "Cerrar"
+            },
+            "customer_contact": {
+                "create": "Guardar contacto",
+                "edit": "Actualizar contacto",
+                "close": "Cerrar"
+            },
+            "itinerary": {
+                "create": "Guardar itinerary",
+                "edit": "Actualizar itinerary",
+                "close": "Cerrar"
+            },
+            "invoice": {
+                "create": "Guardar factura",
+                "edit": "Actualizar factura",
+                "close": "Cerrar"
+            },
+            "calendar": {
+                "close": "Cerrar"
+            },
+            "session": {
+                "recoverPassword": "Recuperar contraseña",
+                "close": "Cerrar"
+            }
+        }
+    }
+}
